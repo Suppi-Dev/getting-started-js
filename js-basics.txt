@@ -1,0 +1,18 @@
+- An Introduction to JavaScript
+  
+- Manuals and specifications
+  Latest Speficifations - ECMASript 8
+  
+- Code editors
+  VS Code Editors
+  Sublime Code Editors
+  
+- Developer console
+  V8 Machine
+  Chrome Inspect Console
+  
+- JavaScript Fundamentals
+
+- Hello, world!
+
+- Code structure
