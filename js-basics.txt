@@ -13,6 +13,69 @@
   
 - JavaScript Fundamentals
 
-- Hello, world!
+- Hello, world! (1.Lesson navigation
+2.The “script” tag
+3.Modern markup
+4.External scripts)
+browser-specific commands (like alert)
+how we attach a script to a webpage- For server-side environments (like Node.js),
+you can execute the script with a command like "node my.js"
+JavaScript programs can be inserted almost anywhere into an HTML document using the <script> tag 
+ 
 
 - Code structure
+<html>
+
+<body>
+
+  <p>Before the script...</p>
+
+  <script>
+    alert( 'Hello, world!' );
+  </script>
+
+  <p>...After the script.</p>
+
+</body>
+</html>
+{****run the example by clicking the “Play” button in the right-top corner of the box above.
+
+The <script> tag contains JavaScript code which is automatically executed when the browser processes the tag****}
+  MODERN MARKUP
+1.  The type attribute: <script type=…>               }=NOT REQURIED
+2.  The language attribute: <script language=…>
+<script type="text/javascript"><!--
+    ...
+//--></script>
+EXTERNAL  SCRIPTS
+  
+A single <script> tag can’t have both the src attribute and code inside
+<script src="file.js">
+  alert(1); // the content is ignored, because src is set
+</script>
+
+The example above can be split into two scripts to work:
+
+<script src="file.js"></script>
+<script>
+  alert(1);
+</script>
+*We can use a <script> tag to add JavaScript code to a page.
+The type and language attributes are not required.
+A script in an external file can be inserted with <script src="path/to/script.js"></script>*
+
+B))))
+Code structure
+The first thing we’ll study is the building blocks of code.
+
+1)Statements----Statements are syntax constructs and commands that perform actions,, alert('Hello, world!'), which shows the message “Hello, world!”.Statements can be separated with a semicolon.EXAMPLE  here we split “Hello World” into two alerts:alert('Hello'); alert('World');Usually, statements are written on separate lines to make the code more readable
+alert('Hello');
+alert('World');
+2)Semicolons----A semicolon may be omitted in most cases when a line break exists.
+3)Comments
+
+
+
+
+
+
