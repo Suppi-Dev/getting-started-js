@@ -1,0 +1,7 @@
+supreethabalaji -> lowercase
+SUPREETHABALAJI -> UPPERCASE
+Supreetha Balaji -> Title Case / Start Case
+supreethaBalaji -> camelCase
+SupperthaBalaji -> UpperCamelCase
+supreetha-balaji -> kebab-case
+supreetha_balaji -> snake_case
