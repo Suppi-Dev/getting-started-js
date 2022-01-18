@@ -71,9 +71,24 @@ The first thing we’ll study is the building blocks of code.
 1)Statements----Statements are syntax constructs and commands that perform actions,, alert('Hello, world!'), which shows the message “Hello, world!”.Statements can be separated with a semicolon.EXAMPLE  here we split “Hello World” into two alerts:alert('Hello'); alert('World');Usually, statements are written on separate lines to make the code more readable
 alert('Hello');
 alert('World');
-2)Semicolons----A semicolon may be omitted in most cases when a line break exists.
-3)Comments
 
+2)Semicolons----A semicolon may be omitted in most cases when a line break exists.alert('Hello'),alert('World'),,Here, JavaScript interprets the line break as an “implicit” semicolon. This is called an automatic semicolon insertion.In most cases, a newline implies a semicolon. But “in most cases” does not mean “always”!-example:alert(3 + 
+1
++ 2);      ****The code outputs 6 because JavaScript does not insert semicolons here. It is intuitively obvious that if the line ends with a plus "+", then it is an “incomplete expression”, so a semicolon there would be incorrect****
+
+3)Comments----Comments can be put into any place of a script. They don’t affect its execution because the engine simply ignores them.
+one-line comments start with two forward slash characters //.,,,,The rest of the line is a comment. It may occupy a full line of its own or follow a statement.
+Like here:
+// This comment occupies a line of its own
+alert('Hello');
+alert('World'); // This comment follows the statement
+(Multiline comments start with a forward slash and an asterisk /* and end with an asterisk and a forward slash */)
+Like this:
+[/* An example with two messages.
+This is a multiline comment.
+*/
+alert('Hello');
+alert('World');]
 
 
 
