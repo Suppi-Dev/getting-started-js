@@ -292,7 +292,7 @@ String Conversion
 Numeric Conversion
 Boolean Conversion
 
-1)String conversion happens when we need the string form of a value.
+1)String conversion 🎀 happens when we need the string form of a value.
 
 For example, alert(value) does it to show the value.
 
@@ -302,7 +302,7 @@ alert(typeof value); // boolean
 value = String(value); // now value is a string "true"
 alert(typeof value); // string
 
-2)Numeric conversion happens in mathematical functions and expressions automatically.
+2)Numeric conversion 🎀 happens in mathematical functions and expressions automatically.
 
 For example, when division / is applied to non-numbers:
 
@@ -313,22 +313,378 @@ alert(typeof str); // string
 let num = Number(str); // becomes a number 123
 alert(typeof num); // number
 
-3)Numeric conversion happens in mathematical functions and expressions automatically.
+3)Boolean Conversion🎀
+is the simplest one.
 
-For example, when division / is applied to non-numbers:
+It happens in logical operations (later we’ll meet condition tests and other similar things) but can also be performed explicitly with a call to Boolean(value).
 
-alert( "6" / "2" ); // 3, strings are converted to numbers
-We can use the Number(value) function to explicitly convert a value to a number:
+The conversion rule:
+Values that are intuitively “empty”, like 0, an empty string, null, undefined, and NaN, become false.
+Other values become true.
+For instance:
+alert( Boolean(1) ); // true
+alert( Boolean(0) ); // false
+alert( Boolean("hello") ); // true
+alert( Boolean("") ); // false
 
-let str = "123";
-alert(typeof str); // string
-let num = Number(str); // becomes a number 123
-alert(typeof num); // number
+H))))Basic operators, maths
+We know many operators from school. They are things like addition +, multiplication *, subtraction -, and so on.
+In this chapter, we’ll start with simple operators, then concentrate on JavaScript-specific aspects, not covered by school arithmetic.
+1)Terms: “unary”, “binary”, “operand”
+2)Maths
+3)String concatenation with binary +
+4)Numeric conversion, unary +
+5)Operator precedence
+6)Assignment
+7)Modify-in-place
+8)Increment/decrement
+9)Bitwise operators
+10)Comma
+
+1)Terms: “unary”, “binary”, “operand”Before we move on, let’s grasp some common terminology.
+
+An operand – is what operators are applied to. For instance, in the multiplication of 5 * 2 there are two operands: the left operand is 5 and the right operand is 2. Sometimes, people call these “arguments” instead of “operands”.
+
+An operator is unary if it has a single operand. For example, the unary negation - reverses the sign of a number:
+let x = 1;
+x = -x;
+alert( x ); // -1, unary negation was applied
+An operator is binary if it has two operands. The same minus exists in binary form as well:
+let x = 1, y = 3;
+alert( y - x ); // 2, binary minus subtracts values
+
+2)Maths: The following math operations are supported:
+
+Addition +,
+Subtraction -,
+Multiplication *,
+Division /,
+Remainder %,
+Exponentiation **.
+The first four are straightforward.
+
+3)String concatenation  with binary + :Usually, the plus operator + sums numbers.
+
+But, if the binary + is applied to strings, it merges (concatenates) them:
+let s = "my" + "string";
+alert(s); // mystring
+
+For example:
+alert( '1' + 2 ); // "12"
+alert( 2 + '1' ); // "21"
+See, it doesn’t matter whether the first operand is a string or the second one.
+
+Here’s a more complex example:
+alert(2 + 2 + '1' ); // "41" and not "221"
+Here, operators work one after another. The first + sums two numbers, so it returns 4, then the next + adds the string 1 to it, so it’s like 4 + '1' = '41'.
+alert('1' + 2 + 2); // "122" and not "14"
+
+4)Usually, the plus operator + sums numbers :
+
+The unary plus or, in other words, the plus operator + applied to a single value, doesn’t do anything to numbers. But if the operand is not a number, the unary plus converts it into a number.
+
+For example:
+// No effect on numbers
+let x = 1;
+alert( +x ); // 1
+let y = -2;
+alert( +y ); // -2
+// Converts non-numbers
+alert( +true ); // 1
+alert( +"" );   // 0
+
+5)Operator precedence:
+Precedence	                 Sign
+ |    Name                   
+       |                        
+…    	…     	               …
+17	unary                 plus	+
+17	unary                negation	-
+16	exponentiation	         **
+15	multiplication	          *
+15	division	                /
+13	addition                	+
+13	subtraction	              -
+…      …                     	…
+3	  assignment               	=
+…      	…                   	…
 
 
 
+6)Assignment
+Let’s note that an assignment = is also an operator. It is listed in the precedence table with the very low priority of 3.
+
+That’s why, when we assign a variable, like x = 2 * 2 + 1, the calculations are done first and then the = is evaluated, storing the result in x.
+let x = 2 * 2 + 1;
+alert( x ); // 5
 
 
+7)Modify-in-place:
+We often need to apply an operator to a variable and store the new result in that same variable.
 
+For example:
+let n = 2;
+n = n + 5;
+n = n * 2;
+This notation can be shortened using the operators += and *=:
+let n = 2;
+n += 5; // now n = 7 (same as n = n + 5)
+n *= 2; // now n = 14 (same as n = n * 2)
+alert( n ); // 14
+
+
+8)Increment/decrement:
+Increasing or decreasing a number by one is among the most common numerical operations.
+
+So, there are special operators for it:
+Increment ++ increases a variable by 1:
+let counter = 2;
+counter++;        // works the same as counter = counter + 1, but is shorter
+alert( counter ); // 3
+
+Decrement -- decreases a variable by 1:
+
+let counter = 2;
+counter--;        // works the same as counter = counter - 1, but is shorter
+alert( counter ); // 1
+
+9)Bitwise operators:
+Bitwise operators treat arguments as 32-bit integer numbers and work on the level of their binary representation.These operators are not JavaScript-specific. They are supported in most programming languages.
+
+The list of operators:
+
+AND ( & )
+OR ( | )
+XOR ( ^ )
+NOT ( ~ )
+LEFT SHIFT ( << )
+RIGHT SHIFT ( >> )
+ZERO-FILL RIGHT SHIFT ( >>> )
+
+10)Comma:
+The comma operator , is one of the rarest and most unusual operators. Sometimes, it’s used to write shorter code, so we need to know it in order to understand what’s going on.
+
+The comma operator allows us to evaluate several expressions, dividing them with a comma ,. Each of them is evaluated but only the result of the last one is returned.
+
+For example:
+let a = (1 + 2, 3 + 4);
+alert( a ); // 7 (the result of 3 + 4)
+
+I))))
+Comparisons
+We know many comparison operators from maths.
+
+Greater/less than: a > b, a < b.
+Greater/less than or equals: a >= b, a <= b.
+Equals: a == b, please note the double equality sign == means the equality test, while a single one a = b means an assignment.
+
+
+Boolean is the result
+String comparison
+Comparison of different types
+Strict equality
+Comparison with null and undefined
+
+J))))Conditional branching: if, '?'
+Sometimes, we need to perform different actions based on different conditions.
+To do that, we can use the if statement and the conditional operator ?, that’s also called a “question mark” operator.
+
+1)The “if” statement
+The if(...) statement evaluates a condition in parentheses and, if the result is true, executes a block of code.
+For example:
+let year = prompt('In which year was ECMAScript-2015 specification published?', '');
+if (year == 2015) alert( 'You are right!' );
+
+2)Boolean conversion
+A number 0, an empty string "", null, undefined, and NaN all become false. Because of that they are called “falsy” values.
+Other values become true, so they are called “truthy”.
+So, the code under this condition would never execute:
+if (0) { // 0 is falsy
+  ...
+}
+
+3)The “else” clause :
+The if statement may contain an optional “else” block. It executes when the condition is falsy.
+
+For example:
+let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
+if (year == 2015) {
+  alert( 'You guessed it right!' );
+} else {
+  alert( 'How can you be so wrong?' ); // any value except 2015
+}
+
+4)Several conditions: “else if” :
+let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
+if (year < 2015) {
+  alert( 'Too early...' );
+} else if (year > 2015) {
+  alert( 'Too late' );
+} else {
+  alert( 'Exactly!' );
+}
+
+5)Conditional operator ‘?’ :
+let accessAllowed;
+let age = prompt('How old are you?', '');
+if (age > 18) {
+  accessAllowed = true;
+} else {
+  accessAllowed = false;
+}
+alert(accessAllowed);
+The so-called “conditional” or “question mark
+
+
+6)Multiple ‘?’ :
+A sequence of question mark operators ? can return a value that depends on more than one condition.
+
+For instance:
+let age = prompt('age?', 18);
+let message = (age < 3) ? 'Hi, baby!' :
+  (age < 18) ? 'Hello!' :
+  (age < 100) ? 'Greetings!' :
+  'What an unusual age!';
+alert( message );
+
+7)Non-traditional use of ‘?’ :
+Sometimes the question mark ? is used as a replacement for if:
+let company = prompt('Which company created JavaScript?', '');
+(company == 'Netscape') ?
+   alert('Right!') : alert('Wrong.');
+   
+   
+   
+K))))Logical operators:
+There are four logical operators in JavaScript: || (OR), && (AND), ! (NOT), ?? (Nullish Coalescing). Here we cover the first three, the ?? operator is in the next article.
+
+1)|| (OR)
+2)OR "||" finds the first truthy value
+3)&& (AND)
+4)AND “&&” finds the first falsy value
+5)! (NOT)
+
+Although they are called “logical”, they can be applied to values of any type, not only boolean. Their result can also be of any type.
+Let’s see the details.
+1)    || (OR)
+The “OR” operator is represented with two vertical line symbols:
+result = a || b;
+3)The AND operator is represented with two ampersands &&:
+result = a && b;
+In classical programming, AND returns true if both operands are truthy and false otherwise:
+alert( true && true );   // true
+alert( false && true );  // false
+alert( true && false );  // false
+alert( false && false ); // false
+4)Given multiple AND’ed values:
+
+result = value1 && value2 && value3;
+5)! (NOT)
+
+The boolean NOT operator is represented with an exclamation sign !.
+The syntax is pretty simple:
+result = !value;
+
+L))))Nullish coalescing operator '??' ::::
+The nullish coalescing operator is written as two question marks ??.
+
+As it treats null and undefined similarly, we’ll use a special term here, in this article. We’ll say that an expression is “defined” when it’s neither null nor undefined.
+
+The result of a ?? b is:
+if a is defined, then a,
+if a isn’t defined, then b.
+In other words, ?? returns the first argument if it’s not null/undefined. Otherwise, the second one.
+
+The nullish coalescing operator isn’t anything completely new. It’s just a nice syntax to get the first “defined” value of the two.
+
+We can rewrite result = a ?? b using the operators that we already know, like this:
+
+result = (a !== null && a !== undefined) ? a : b;
+Now it should be absolutely clear what ?? does. Let’s see where it helps.
+
+The common use case for ?? is to provide a default value for a potentially undefined variable.
+
+For example, here we show user if defined, otherwise Anonymous:
+let user;
+alert(user ?? "Anonymous"); // Anonymous (user not defined)
+Here’s the example with user assigned to a name:
+
+M))))Loops: while and for
+We often need to repeat actions.
+1)The “while” loop
+2)The “do…while” loop
+3)The “for” loop
+4)Breaking the loop
+5)Continue to the next iteration
+6)Labels for break/continue
+
+For example, outputting goods from a list one after another or just running the same code for each number from 1 to 10.
+
+Loops are a way to repeat the same code multiple times.
+
+The “while” loop
+The while loop has the following syntax:
+while (condition) {
+  // code
+  // so-called "loop body"
+}
+
+The condition check can be moved below the loop body using the do..while syntax:
+
+do {
+  // loop body
+} while (condition);
+
+
+N))))The "switch" statement ::::
+1)An example
+2)Grouping of “case”
+3)Type matters
+4)A switch statement can replace multiple if checks.
+
+It gives a more descriptive way to compare a value with multiple variants.
+
+The syntax
+The switch has one or more case blocks and an optional default.
+
+It looks like this:
+
+switch(x) {
+  case 'value1':  // if (x === 'value1')
+    ...
+    [break]
+
+  case 'value2':  // if (x === 'value2')
+    ...
+    [break]
+
+  default:
+    ...
+    [break]
+}
+
+
+O))))Functions ::::
+1)Function Declaration
+2)Local variables
+3)Outer variables
+4)Parameters
+5)Default values
+6)Returning a value
+7)Naming a function
+8)Functions == Comments
+9)values
+
+P)))) Function expressions ::::
+1)Function is a value
+2)Callback functions
+3)Function Expression vs
+4)Function Declaration
+In JavaScript, a function is not a “magical language structure”, but a special kind of value.
+
+The syntax that we used before is called a Function Declaration:
+function sayHi() {
+  alert( "Hello" );
+}
 
 
